@@ -1,0 +1,15 @@
+.input-form {
+    width: 300px;
+}
+
+.input-field {
+    padding-left: 1px;
+}
+
+mat-form-field {
+    width: 300px;
+}
+
+.submit-button {
+    margin-top: 2%;
+}

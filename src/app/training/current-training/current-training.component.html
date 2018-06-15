@@ -1,0 +1,12 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner
+  class="example-margin"
+  [color]="color"
+  [mode]="mode"
+  [value]="value">
+  </mat-progress-spinner>
+  <b>{{currentTraining.name}}</b><h1>{{value}}</h1>
+  <p [ngStyle]="{'background-color': color, 'padding': '5px', 'border-radius': '5px'}">{{comment}}</p>
+  <button mat-raised-button color="accent" (click)="openDialog()">Stop Training</button>
+</section>
+

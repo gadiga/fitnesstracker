@@ -1,0 +1,9 @@
+.example-card {
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.example-header-image {
+    background-image: url('/assets/images/lz.jpg');
+    background-size: cover;
+}
