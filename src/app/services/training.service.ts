@@ -1,6 +1,9 @@
 import { Exercise } from '../models/exercise.model';
 import { Subject } from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { FirestoreService } from './firestore.service';
 
+@Injectable()
 export class TrainingService {
     private availableExercises: Exercise[] = [
         {id: 'hop', name: 'Hop', duration: 50, calories: 2000},
@@ -14,6 +17,10 @@ export class TrainingService {
     private currentExercise: Exercise;
 
     public exerciseChanged = new Subject<Exercise>();
+
+    constructor(private firestore: FirestoreService){
+        firestore.exercises$.subscribe(exercises=> this.availableExercises = <Exercise[]>exercises);
+    }
 
     getExercises (): Exercise[] {
         return [...(this.availableExercises)];

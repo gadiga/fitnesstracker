@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 
 import { MaterialModule } from './material.module';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TrainingComponent } from './training/training.component';
@@ -25,6 +28,8 @@ import { StopTrainingDialogComponent } from './training/current-training/stop-tr
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { TrainingService } from './services/training.service';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from 'angularfire2/firestore/firestore';
 
 
 @NgModule({
@@ -48,9 +53,11 @@ import { TrainingService } from './services/training.service';
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'ng-fitness-tracker'),
+    AngularFirestoreModule
   ],
-  providers: [AuthService, TrainingService],
+  providers: [AuthService, TrainingService, AngularFirestore],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingDialogComponent]
 })
