@@ -84,6 +84,7 @@ export class CurrentTrainingComponent implements OnInit {
       if (result === true) {
         this.stopTraining();
       } else {
+        this.status = 'ongoing';
         this.startTraining();
       }
     });
